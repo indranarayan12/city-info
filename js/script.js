@@ -21,8 +21,7 @@ function loadData() {
     var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600X400&location=' + address + '&key=GOOGLE_API_KEY';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
-    // YOUR CODE GOES HERE!
-
+    // load New York Times articles
     var nytimesUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=NYT_API_KEY'
 
     $.getJSON(nytimesUrl, function( data ) {
@@ -42,7 +41,7 @@ function loadData() {
         $nytHeaderElem.text("New York Times Articles Could Not Be Displayed");
     });
 
-    // Wikipedia AJAX request goes here
+    // load wikipedia links
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
 
     var wikiRequestTimeout = setTimeout(function(){
